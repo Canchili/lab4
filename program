@@ -1,1 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
 
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+/*
+Написать функции, вычисляющие периметр и площадь треугольника по значениям длин трёх его сторон.
+ Разместить их в отдельном модуле (отличном от того, где располагается функция main( )). 
+ Ввести с консоли значения длин сторон треугольника (с проверкой на корректность неравенства треугольника) и
+  выдать на консоль вычисленные с помощью написанных функций значения его периметра и площади.
+*/
+void Per(int a,int b, int c)
+{
+	return (a + b + c);
+}
+
+void Perp(int a, int b, int c)
+{
+	return ((a + b + c)/2);
+}
+
+void Plo(int a,int b, int c)
+{
+	int Pl;
+	Pl = sprt(Perp(a,b,c)*(Perp(a,b,c) - a)*(Perp(a,b,c) - b)*(Perp(a,b,c) - c));
+	return Pl;
+}
+
+int main(int argc, char *argv[]) {
+	int a = 3,b = 5, c = 8;
+	Per(a,b,c);
+	Plo(a,b,c);
+	
+	return 0;
+}
