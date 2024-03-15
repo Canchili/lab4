@@ -1,35 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 /*
-Написать функции, вычисляющие периметр и площадь треугольника по значениям длин трёх его сторон.
- Разместить их в отдельном модуле (отличном от того, где располагается функция main( )). 
- Ввести с консоли значения длин сторон треугольника (с проверкой на корректность неравенства треугольника) и
-  выдать на консоль вычисленные с помощью написанных функций значения его периметра и площади.
+Íàïèñàòü ôóíêöèè, âû÷èñëÿþùèå ïåðèìåòð è ïëîùàäü òðåóãîëüíèêà ïî çíà÷åíèÿì äëèí òð¸õ åãî ñòîðîí.
+ Ðàçìåñòèòü èõ â îòäåëüíîì ìîäóëå (îòëè÷íîì îò òîãî, ãäå ðàñïîëàãàåòñÿ ôóíêöèÿ main( )). 
+ Ââåñòè ñ êîíñîëè çíà÷åíèÿ äëèí ñòîðîí òðåóãîëüíèêà (ñ ïðîâåðêîé íà êîððåêòíîñòü íåðàâåíñòâà òðåóãîëüíèêà) è
+  âûäàòü íà êîíñîëü âû÷èñëåííûå ñ ïîìîùüþ íàïèñàííûõ ôóíêöèé çíà÷åíèÿ åãî ïåðèìåòðà è ïëîùàäè.
 */
-void Per(int a,int b, int c)
+int Per(int a,int b, int c)
 {
-	return (a + b + c);
-}
-
+	int pr = (a + b + c);
+	return (pr);
+};
+/*
 void Perp(int a, int b, int c)
 {
 	return ((a + b + c)/2);
 }
+*/
 
-void Plo(int a,int b, int c)
+int Plo(int a,int b, int c)
 {
 	int Pl;
-	Pl = sprt(Perp(a,b,c)*(Perp(a,b,c) - a)*(Perp(a,b,c) - b)*(Perp(a,b,c) - c));
-	return Pl;
+	Pl = sprt((((a + b + c)/2)*((a + b + c)/2) - a)*(((a + b + c)/2) - b)*(((a + b + c)/2) - c));
+	return (Pl);
 }
 
 int main(int argc, char *argv[]) {
-	int a = 3,b = 5, c = 8;
-	Per(a,b,c);
-	Plo(a,b,c);
+	int a = 3,b = 5, c = 8,Pr,Pl;
+	Pr = Per(a,b,c);
+	printf("%d", Pr);
+	Pl = Plo(a,b,c);
+	printf("%d", Pl);
 	
 	return 0;
 }
