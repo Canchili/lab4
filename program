@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
+#include "tangl.h.c"
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 /*
@@ -10,31 +10,47 @@
  Ââåñòè ñ êîíñîëè çíà÷åíèÿ äëèí ñòîðîí òðåóãîëüíèêà (ñ ïðîâåðêîé íà êîððåêòíîñòü íåðàâåíñòâà òðåóãîëüíèêà) è
   âûäàòü íà êîíñîëü âû÷èñëåííûå ñ ïîìîùüþ íàïèñàííûõ ôóíêöèé çíà÷åíèÿ åãî ïåðèìåòðà è ïëîùàäè.
 */
+
 int Per(int a,int b, int c)
 {
 	int pr = (a + b + c);
 	return (pr);
 };
-/*
-void Perp(int a, int b, int c)
-{
-	return ((a + b + c)/2);
-}
-*/
 
-int Plo(int a,int b, int c)
+
+double Plo(int a,int b, int c)
 {
-	int Pl;
-	Pl = sprt((((a + b + c)/2)*((a + b + c)/2) - a)*(((a + b + c)/2) - b)*(((a + b + c)/2) - c));
+	double Pl;
+	Pl = sqrt(((a+b+c)/2)*(((a+b+c)/2) - a)*(((a+b+c)/2) - b)*(((a+b+c)/2) - c));
 	return (Pl);
 }
 
+
 int main(int argc, char *argv[]) {
-	int a = 3,b = 5, c = 8,Pr,Pl;
-	Pr = Per(a,b,c);
-	printf("%d", Pr);
-	Pl = Plo(a,b,c);
-	printf("%d", Pl);
+	int a ,b, c,Pr,k;
+	double Pl;
+	printf("vvedite a\n");
+	scanf("%d",&a);
 	
+	printf("vvedite b\n");
+	scanf("%d",&b);
+	
+	printf("vvedite c\n");
+	scanf("%d",&c);	
+	Pl = Plo(a,b,c);
+	Pr = Per(a,b,c);
+	if (((a + b)<c) || ((c + b)<a) || ((a + c)<b)){
+		
+		printf("treg ne sush\n");
+	}
+	else {
+		printf("treg sush\n");	
+	
+		printf("%d\n", Pr);
+	
+		printf("%lf\n", Pl);
+	}
+	
+
 	return 0;
 }
